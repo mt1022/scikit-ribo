@@ -194,6 +194,8 @@ def scikit_ribo(bam, directory, prefix, mapQual, minReadLen, maxReadLen, rele, o
     start, cds, posIdx, nt, lambda_min = log_status(bam, directory, prefix, out, cv)
     # load data
     trainingData, cdsData = aln_module(bam, mapQual, minReadLen, maxReadLen, rele, out, start, cds, posIdx, nt)
+    trainingData = trainingData.astype({'asite': np.int64, 'read_length': np.int64})
+    cdsData = cdsData.astype({'read_length': np.int64, 'start': np.int64, 'end': np.int64})
     # predict a-site
     dataFrame = asite_module(trainingData, cdsData, rele, prefix, out, directory)
     # model te
