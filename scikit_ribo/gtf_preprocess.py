@@ -24,6 +24,10 @@ from pybedtools.featurefuncs import gff2bed
 from itertools import groupby
 
 
+# change the tmpdir location with `pbt.set_tempdir('/custom/location')` if
+# the default location doesn't have enough space for pybedtools.
+
+
 class GtfPreProcess(object):
     ''' class to sort and get start codon from a gtf file
     '''
