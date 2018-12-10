@@ -73,6 +73,7 @@ class BamProcess(object):
         # save the bedtool to local
         self.bedtool = pbt.BedTool(self.prefix + ".bam")
         self.bedtool = self.bedtool.bam_to_bed(bed12=False)
+        self.bedtool = self.bedtool.sort()
         self.bedtool.saveas(self.prefix + '.bed')
 
     def posIndex(self):
