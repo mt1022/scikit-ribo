@@ -48,11 +48,11 @@ class GtfPreProcess(object):
         self.db = gffutils.create_db(gtfDedup, ":memory:", force=True, verbose=False)
         # retrieve a list of gene names with type "CDS" from db
         for gene in self.db.features_of_type("CDS", order_by=("seqid","start")):
-            self.geneNames.append(gene['gene_id'][0])
+            self.geneNames.append(gene['transcript_id'][0])
         self.geneNames = list(set(self.geneNames))
         # convert a gtf/gff3 file to bed12 and save to a nested list
         for geneName in self.geneNames:
-            geneBed12 = self.db.bed12(geneName, name_field='gene_id')
+            geneBed12 = self.db.bed12(geneName, name_field='transcript_id')
             row = geneBed12.split("\t")
             self.geneBed12s.append([row[0], int(row[1]), int(row[2])] + row[3:])
         # sort the file
