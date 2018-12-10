@@ -132,7 +132,7 @@ class BamProcess(object):
         else:
             training = training[((training['asite'] >= 1) & (training['asite'] <= 5))]
         # get nts
-        self.nts = pd.read_table(self.ntsFn, header=0)
+        self.nts = pd.read_table(self.ntsFn, header=0, dtype={'chrom': np.str, 'pos': np.int64, 'nt': np.str})
         training['pos_-1'] = np.where(training['gene_strand'] == '+', training['start']-1,  training['end'])
         training['pos_0'] = np.where(training['gene_strand'] == '+', training['start'], training['end']-1)
         training['pos_n-1'] = np.where(training['gene_strand'] == '+', training['end']-1, training['start'])
