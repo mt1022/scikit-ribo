@@ -1,3 +1,10 @@
+This is a copy of scikit-ribo by Fang et al with some modifications to run on fly genome:
+
+
+See below for the original README of scikit-ribo.
+
+------------------------------------------------------------------------------
+
 ![logo](docs/images/logo.png)
 
 ## *scikit-ribo* 
