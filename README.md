@@ -1,6 +1,12 @@
 This is a copy of [scikit-ribo](https://github.com/schatzlab/scikit-ribo) by Fang et al with some modifications to run on fly genome.
 
-see commit message for modifications and reasons.
+See commit message for modifications and reasons.
+
+Error message related to `site-packages/glmnet_py/cvglmnet.py`:
+Change line 260 `scipy.floor(nobs/nfolds)` to `int(scipy.floor(nobs/nfolds))`.
+
+There are also one or two other errors that are difficult to reproduce and debug (Usually fixed by rerun the build step or run step).
+
 See below for the original README of scikit-ribo.
 
 ------------------------------------------------------------------------------
